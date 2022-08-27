@@ -31,6 +31,10 @@ body {
   font-family: Vujah;
   font-weight: bold;
 }
+.wrapper {
+  position: relative;
+  perspective: 1000px;
+}
 .text {
   font-size: 2.4rem;
   text-align: center;
@@ -46,14 +50,17 @@ body {
   justify-content: center;
   border-radius: 1rem;
   margin-top: clamp(11.5rem, 2vh, 2rem);
+  transition: .1s all ease;
   /* border: 5px solid var(--yellow);
   outline: solid 5px var(--cream); */
+  box-shadow: 0 0 2rem rgba(0,0,0,.3);
 }
 .king {
   position: absolute;
   width: 30rem;
   display: block;
   top: -12.6rem;
+  transition: .1s all ease;
 }
 .king > img {
   object-fit: contain;
@@ -241,6 +248,7 @@ footer {
 }
 audio {
   visibility: hidden;
+  display: none;
 }
 
 @media (min-width: 768px) {
