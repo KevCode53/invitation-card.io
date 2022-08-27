@@ -140,7 +140,8 @@ p {
   width: 100%;
   position: relative;
 }
-.division:after, .division::before {
+.division:after,
+.division::before {
   content: '';
   position: absolute;
   left: -2rem;
@@ -149,11 +150,15 @@ p {
   width: 3.5rem;
   border-radius: 100%;
   background: var(--yellow);
+  background: radial-gradient(ellipse at left, var(--yellow), rgba(0,0,0,.0)),
+              radial-gradient(ellipse at right, rgba(0,0,0,.3) 5%, var(--yellow));
 }
+
 .division::before {
   right: -2rem;
   left: unset;
   z-index: 1;
+  transform: scale(-1);
 }
 .division span {
   position: absolute;
@@ -164,6 +169,24 @@ p {
   border-style: none none dashed none;
   border-width: .4rem;
 }
+.division span::after,
+.division span::before {
+  content: '';
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--yellow);
+  border-radius: 100%;
+  left: -2rem;
+  top: -1rem;
+}
+
+.division span::before {
+  left: unset;
+  right: -2rem;
+}
+
+
 .down > .container {
   width: 100%;
 }
@@ -291,6 +314,7 @@ audio {
     right: -1rem;
     left: unset;
     top: -2rem;
+    transform: rotate(90deg);
   }
 
   .division::before {
@@ -299,6 +323,7 @@ audio {
     bottom: -2rem;
     left: unset;
     z-index: 1;
+    transform: rotate(-90deg);
   }
   .division span {
     width: 1rem;
@@ -307,7 +332,23 @@ audio {
     border-right: .1rem solid #ccc;
     border-style: none dashed none none;
     border-width: .4rem;
+    opacity: .8;
   }
+
+  .division span::after {
+    right: -1.6rem;
+    left: unset;
+    top: -2rem;
+    opacity: .8;
+  }
+
+  .division span::before {
+    right: -1.6rem;
+    top: unset;
+    bottom: -2rem;
+    left: unset;
+  }
+
   .down {
     flex-direction: column;
     padding: 3rem 1rem .5rem 1rem;
